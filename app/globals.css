@@ -1,0 +1,239 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -------------------------------------------------------------------------
+   DESIGN TOKENS
+   The whole site is built against these variables so the exact same markup
+   can render either the redesigned theme or the original template theme.
+   Tailwind's palette maps onto them (see tailwind.config.ts).
+   ------------------------------------------------------------------------- */
+
+:root,
+.theme-maya {
+  /* Dr. Maya Reynolds — "warm coastal calm"
+     Primary  : Evergreen      Secondary: Warm sand   Accent: Terracotta */
+  --c-bg: #fcf9f5;
+  --c-cream: #f6f0e7;
+  --c-sand: #eadfcd;
+  --c-card: #f3ece2;
+  --c-ink: #322f2a;
+  --c-muted: #6d6559;
+  --c-primary: #2a3d33;
+  --c-primary-soft: #3d5449;
+  --c-accent: #a2593f;
+  --c-accent-soft: #cf8663;
+  --c-line: #ded2c1;
+  --c-on-primary: #fbf7f1;
+  --c-on-primary-muted: #c9d3cb;
+  --c-shade: rgba(22, 32, 26, 0.6);
+}
+
+.theme-original {
+  /* Conejo Valley Family Counseling — original template palette */
+  --c-bg: #ffffff;
+  --c-cream: #f6f4ee;
+  --c-sand: #e3d9ca;
+  --c-card: #f6f4ee;
+  --c-ink: #2b2b2b;
+  --c-muted: #6d6d6d;
+  --c-primary: #2b2b2b;
+  --c-primary-soft: #2b2b2b;
+  --c-accent: #86b3b3;
+  --c-accent-soft: #86b3b3;
+  --c-line: #e3d9ca;
+  --c-on-primary: #ffffff;
+  --c-on-primary-muted: #e8e8e8;
+  --c-shade: rgba(0, 0, 0, 0.55);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--c-bg);
+    color: var(--c-ink);
+    font-family: var(--font-body), system-ui, -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.68;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--c-accent);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--c-accent);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  /* --- layout ------------------------------------------------------------ */
+  .shell {
+    @apply mx-auto w-full max-w-[1200px] px-6 sm:px-8 lg:px-12;
+  }
+
+  .shell-wide {
+    @apply mx-auto w-full max-w-[1340px] px-0 sm:px-8 lg:px-12;
+  }
+
+  .section-pad {
+    @apply py-16 md:py-24 lg:py-28;
+  }
+
+  /* --- typography -------------------------------------------------------- */
+  .display {
+    @apply font-display font-light leading-[1.07] tracking-[-0.012em];
+    color: var(--c-primary);
+  }
+
+  .display-1 {
+    @apply display text-[34px] sm:text-[44px] lg:text-[58px];
+  }
+
+  .display-2 {
+    @apply display text-[30px] sm:text-[38px] lg:text-[47px];
+  }
+
+  .display-3 {
+    @apply display text-[26px] sm:text-[31px] lg:text-[38px];
+  }
+
+  .eyebrow {
+    @apply font-body text-[11px] font-semibold uppercase leading-relaxed tracking-[0.2em] md:text-[12px];
+    color: var(--c-muted);
+  }
+
+  .eyebrow-accent {
+    color: var(--c-accent);
+  }
+
+  .lede {
+    @apply text-[16px] leading-[1.75] md:text-[17px];
+    color: var(--c-muted);
+  }
+
+  .script {
+    font-family: var(--font-script), cursive;
+    color: var(--c-accent);
+    font-size: 1.2em;
+    font-weight: 400;
+    line-height: 1;
+    display: inline-block;
+    padding-bottom: 0.06em;
+  }
+
+  .on-dark .script {
+    color: var(--c-accent-soft);
+  }
+
+  /* --- links & buttons --------------------------------------------------- */
+  .cta-link {
+    @apply inline-block border-b pb-2 font-body text-[12px] font-bold uppercase tracking-[0.16em] transition-colors duration-200;
+    color: var(--c-primary);
+    border-color: currentColor;
+  }
+
+  .cta-link:hover {
+    color: var(--c-accent);
+  }
+
+  .on-dark .cta-link {
+    color: var(--c-on-primary);
+  }
+
+  .on-dark .cta-link:hover {
+    color: var(--c-accent-soft);
+  }
+
+  .pill-btn {
+    @apply inline-flex items-center justify-center rounded-full border px-7 py-3 font-body text-[12px] font-bold uppercase tracking-[0.16em] transition-colors duration-200;
+    color: var(--c-primary);
+    border-color: currentColor;
+  }
+
+  .pill-btn:hover {
+    background-color: var(--c-primary);
+    border-color: var(--c-primary);
+    color: var(--c-on-primary);
+  }
+
+  .pill-btn-solid {
+    background-color: var(--c-accent);
+    border-color: var(--c-accent);
+    color: #fff;
+  }
+
+  .pill-btn-solid:hover {
+    background-color: var(--c-primary);
+    border-color: var(--c-primary);
+    color: #fff;
+  }
+
+  .nav-link {
+    @apply font-body text-[12px] font-medium uppercase tracking-[0.14em] transition-colors duration-200;
+    color: var(--c-ink);
+  }
+
+  .nav-link:hover {
+    color: var(--c-accent);
+  }
+
+  /* --- imagery ----------------------------------------------------------- */
+  .photo {
+    @apply relative overflow-hidden;
+    background-color: var(--c-sand);
+  }
+
+  /* Images fill their box whatever sizing class the box carries. */
+  .photo > img {
+    @apply absolute inset-0 h-full w-full object-cover;
+  }
+
+  /* A whisper of warmth so every photo sits inside the palette. */
+  .theme-maya .photo > img {
+    filter: saturate(0.95) contrast(1.02) sepia(0.07);
+  }
+
+  .photo-shade::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.82) 0%,
+      rgba(0, 0, 0, 0.5) 38%,
+      rgba(0, 0, 0, 0.12) 72%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+
+  .band-shade::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--c-shade);
+  }
+
+  /* --- cards ------------------------------------------------------------- */
+  .grid-card {
+    @apply flex flex-col justify-end;
+  }
+
+  .rule-item {
+    @apply border-b py-5 font-body text-[13px] font-medium uppercase tracking-[0.14em] transition-colors duration-200;
+    color: var(--c-ink);
+    border-color: var(--c-line);
+  }
+
+  .rule-item:hover {
+    color: var(--c-accent);
+  }
+}

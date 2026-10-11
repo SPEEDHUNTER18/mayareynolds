@@ -1,0 +1,44 @@
+   ▲ Next.js 15.5.27
+   - Local:        http://localhost:3000
+   - Network:      http://172.18.96.1:3000
+
+ ✓ Starting...
+ ✓ Ready in 30.9s
+ ○ Compiling / ...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+ ✓ Compiled / in 43.9s (665 modules)
+ GET / 200 in 45469ms
+ GET / 200 in 352ms
+ GET / 200 in 475ms
+ ✓ Compiled in 626ms (638 modules)
+ GET / 200 in 212ms
+ ✓ Compiled in 663ms (638 modules)
+ GET / 200 in 248ms
+ GET / 200 in 1123ms
+ GET / 200 in 308ms
+ GET / 200 in 215ms
+ GET / 200 in 250ms
+ GET / 200 in 241ms
+ GET / 200 in 238ms
+ GET / 200 in 183ms
+ GET / 200 in 253ms
+ GET / 200 in 5022ms
+ GET / 200 in 1517ms
+[?25h
